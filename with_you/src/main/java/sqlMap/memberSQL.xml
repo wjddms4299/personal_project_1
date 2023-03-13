@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.wy.member">
+	<insert id="memberJoin" parameterType="com.wy.member.model.MemberDTO">
+  	insert into jsp_member values(jsp_member_idx.nextval,#{id},#{name},#{pwd},#{email},#{tel},#{addr},sysdate)
+  	</insert>
+  	
+  	<select id="idCheck" parameterType="String" resultType="com.wy.member.model.MemberDTO">
+  	select * from jsp_member where id=#{id}
+  	</select>
+  	
+  	<select id="loginCheck" parameterType="String" resultType="String">
+  	select pwd from jsp_member where id=#{id}
+  	</select>
+  	
+  	<select id="getUserInfo" parameterType="String" resultType="String">
+  	select name from jsp_member where id=#{id}
+  	</select>
+  </mapper>
